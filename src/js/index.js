@@ -1,7 +1,72 @@
-import x from './test';
+import Search from './models/Search';
+import * as searchView from './views/searchView';
 
-const y = 23
-console.log(`I imported ${x} from another module! variable is ${y}`);
+//Testing that the API call works
+const search = new Search('batman')
+search.getResults();
+console.log(search);
+
+const state = {};
+
+const controlSearch = async() => {
+  // 1. Get query from view
+  const query = 'batman'
+
+  if(query) {
+    // 2. New search object and add to state
+    state.search = new Search(query)
+
+    // 3. Prepare UI for results
+    searchView.clearInput();
+    searchView.clearResults();
+
+    try {
+      // 4. Search for recipes
+      await state.search.getResults();
+
+      // 5. Render results on UI
+      console.log('from controlSearch');
+      searchView.renderResults(state.search.result);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+document.querySelector('.search').addEventListener('submit', e => {
+  e.preventDefault();
+  controlSearch()
+})
+
+/**
+ * Search Controller
+ */
+
+
+
+ 
+/**
+ * Movie Controller
+ */
+
+/**
+ * Likes Controller
+ */
+
+/**
+ * Restore liked movies on page load
+ */
+
+ /**
+  * Handling movie button clicks
+  */
+
+
+
+
+
+
+
 
 // const form = document.querySelector('.movie-form');
 // const searchInput = document.getElementById('searchInput');
@@ -9,39 +74,12 @@ console.log(`I imported ${x} from another module! variable is ${y}`);
 // const KEY = 'a346feec';
 
 
-// const createMovie = (movie) => {
-//   const element = document.createElement('article');
-//   element.classList.add('movie-item')
-//   element.innerHTML = `
-//     <p>${movie.Title}</p>
-//     <p>${movie.Year}</p>
-//     <img class='poster' src=${movie.Poster}>
-//   `;
-//   moviesList.appendChild(element)
-// };
 
 // const setBackToDefault = () => {
 //   searchInput.value = '';
 // }
 
-// // http://www.omdbapi.com/?i=tt3896198&apikey=a346feec
-// async function search(searchQuery) {
-//   try {
-//     const apiLink = `http://www.omdbapi.com/?s=${searchQuery}&apikey=${KEY}`;
-//     const result = await fetch(apiLink);
-//     const data = await result.json();
-//     console.log(data)
-//     console.log(data.Search)
-//     let movies = data.Search;
-//     movies.forEach(movie => {
-//       console.log(movie.Title)
-//       createMovie(movie);
-//     })
-//     return data;
-//   } catch(error) {
-//     console.log(error)
-//   }
-// }
+
 
 // const clearItems = () => {
 //   const movies = document.querySelectorAll('.movie-item');
