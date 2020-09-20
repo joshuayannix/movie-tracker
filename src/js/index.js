@@ -1,4 +1,5 @@
 import Search from './models/Search';
+import { clearLoader, renderLoader } from './views/loader';
 import * as searchView from './views/searchView';
 
 //Testing that the API call works
@@ -19,16 +20,18 @@ const controlSearch = async() => {
     // 3. Prepare UI for results
     searchView.clearInput();
     searchView.clearResults();
+    renderLoader(document.querySelector('.results'));
 
     try {
       // 4. Search for recipes
       await state.search.getResults();
 
       // 5. Render results on UI
-      console.log('from controlSearch');
+      clearLoader();
       searchView.renderResults(state.search.result);
     } catch (error) {
       console.log(error);
+      clearLoader();
     }
   }
 }
