@@ -16,7 +16,26 @@ body {
 .container {
   border: 2px solid yellow;
   width: 98vw;
+  display: flex;
 }
+
+.myList-section{
+  border: 2px solid green;
+  width: 20%;
+}
+
+.movie-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+}
+
+.movie__details-columns {
+  display: flex;
+  margin: 5px;
+}
+
 .results {
   display: flex;
   flex-direction: column;
