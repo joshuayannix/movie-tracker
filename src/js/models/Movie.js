@@ -20,19 +20,19 @@ export default class Movie {
       this.director = res.data.Director;
       this.genre = res.data.Genre;
       this.language = res.data.Language;
-      this.metascore = this.data.Metascore;
-      this.plot = this.data.Plot;
-      this.poster = this.data.Poster;
-      this.production = this.data.Production;
-      this.rated = this.data.Rated;
-      this.released = this.data.Released;
-      this.runtime = this.data.Runtime;
-      this.title = this.data.Title;
-      this.type = this.data.Type;
-      this.writer = this.data.Writer;
-      this.year = this.data.Year;
-      this.imdbRating = this.data.imdbRating;
-      this.imdbVotes = this.data.imdbVotes;
+      this.metascore = res.data.Metascore;
+      this.plot = res.data.Plot;
+      this.poster = res.data.Poster;
+      this.production = res.data.Production;
+      this.rated = res.data.Rated;
+      this.released = res.data.Released;
+      this.runtime = res.data.Runtime;
+      this.title = res.data.Title;
+      this.type = res.data.Type;
+      this.writer = res.data.Writer;
+      this.year = res.data.Year;
+      this.imdbRating = res.data.imdbRating;
+      this.imdbVotes = res.data.imdbVotes;
     } catch (error) {
       console.log('The getMovie API call is erroring');
     }

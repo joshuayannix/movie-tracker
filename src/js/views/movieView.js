@@ -7,22 +7,32 @@ export const clearMovie = () => {
 export const renderMovie = (movie) => {
   const markup = `
     <figure>
-      <img src="${movie.poster}" alt="${movie.poster}">
+      <img src="${movie.poster}" alt="${movie.title}">
     </figure>
 
     <div class="movie__details-firstColumn">
+      <div>${movie.actors}</div> 
+      <div>${movie.awards}</div>  
+      <div>${movie.boxOffice}</div> 
+      <div>${movie.country}</div> 
+      <div>${movie.dvd}</div> 
       <div>${movie.director}</div>
-      <div>${movie.actors}</div>        
-      <div>${movie.awards}</div>        
-      <div>${movie.boxOffice}</div>        
-      <div>${movie.country}</div>        
-     
+      <div>${movie.genre}</div>
+      <div>${movie.metascore}</div>
+      <div>${movie.plot}</div>
+             
     </div>
 
     <div class="movie__details-secondColumn">
-      <div>${movie.genre}</div>
-      <div>${movie.language}</div>
-     
+      <div>${movie.production}</div>
+      <div>${movie.rated}</div>
+      <div>${movie.released}</div>
+      <div>${movie.runtime}</div>
+      <div>${movie.type}</div>
+      <div>${movie.writer}</div>
+      <div>${movie.year}</div>
+      <div>${movie.imdbRating}</div>
+      <div>${movie.imdbVotes}</div>     
     </div>
   `;
   movieSection.insertAdjacentHTML('afterbegin', markup);
