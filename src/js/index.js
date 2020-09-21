@@ -1,7 +1,8 @@
 import Movie from './models/Movie';
 import Search from './models/Search';
-import { clearLoader, elementStrings, renderLoader } from './views/loader';
+import { clearLoader, renderLoader } from './views/loader';
 import * as searchView from './views/searchView';
+import * as movieView from './views/movieView';
 
 //Testing that the API call works
 // const search = new Search('batman')
@@ -58,29 +59,33 @@ searchResPages.addEventListener('click', e => {
 /**
  * Movie Controller
  */
+const movieSection = document.querySelector('.movie-section');
 
 const controlMovie = async () => {
   const id = window.location.hash.replace('#', '');
-  
 
   if(id) {
-
     // Prepare UI for changes
-
+    movieView.clearMovie();
+    renderLoader(movieSection);
+    
     // Create new movie object
     state.movie = new Movie(id);
 
     try {
       // Get movie data
       await state.movie.getMovie();
+
+      // Render movie
+      clearLoader();
+      movieView.renderMovie(state.movie)
     } catch (err) {
       console.log('something wrong with the API call in controlMovie');
     }
   }
 };
 
-window.addEventListener('hashchange', controlMovie);
-
+['hashchange', 'load'].forEach(event => window.addEventListener(event, controlMovie));
 
 
 /**
