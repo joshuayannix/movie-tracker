@@ -1,11 +1,12 @@
+import Movie from './models/Movie';
 import Search from './models/Search';
 import { clearLoader, elementStrings, renderLoader } from './views/loader';
 import * as searchView from './views/searchView';
 
 //Testing that the API call works
-const search = new Search('batman')
-search.getResults();
-console.log(search);
+// const search = new Search('batman')
+// search.getResults();
+// console.log(search);
 
 const state = {};
 
@@ -53,18 +54,34 @@ searchResPages.addEventListener('click', e => {
     searchView.renderResults(state.search.result, goToPage);
   }
 });
-
-
-/**
- * Search Controller
- */
-
-
-
  
 /**
  * Movie Controller
  */
+
+const controlMovie = async () => {
+  const id = window.location.hash.replace('#', '');
+  
+
+  if(id) {
+
+    // Prepare UI for changes
+
+    // Create new movie object
+    state.movie = new Movie(id);
+
+    try {
+      // Get movie data
+      await state.movie.getMovie();
+    } catch (err) {
+      console.log('something wrong with the API call in controlMovie');
+    }
+  }
+};
+
+window.addEventListener('hashchange', controlMovie);
+
+
 
 /**
  * Likes Controller
@@ -80,22 +97,9 @@ searchResPages.addEventListener('click', e => {
 
 
 
-
-
-
-
-
-// const form = document.querySelector('.movie-form');
-// const searchInput = document.getElementById('searchInput');
-// const moviesList = document.querySelector('.movies-list')
-// const KEY = 'a346feec';
-
-
-
 // const setBackToDefault = () => {
 //   searchInput.value = '';
 // }
-
 
 
 // const clearItems = () => {

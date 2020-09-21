@@ -17,18 +17,19 @@ export const clearResults = () => {
 // Render a single movie
 const renderMovie = movie => {
   const markup = `
-  <li class='movie-item'>
+  <li>
+    <a class="results__link" href="#${movie.imdbID}">
 
-    <div class="movie-poster">
-      <img class='poster' src=${movie.Poster} alt='${movie.title}'> 
-    </div>
+      <figure class="movie-poster">
+        <img class='poster' src=${movie.Poster} alt='${movie.title}'> 
+      </figure>
 
-    <div class="movie-info">
-      <div>${movie.Title}</div>
-      <div>${movie.Year}</div
-      <div>${movie.imdbID}</div>
-    </div>   
+      <div class="movie-info">
+        <h4>${movie.Title}</h4>
+        <p>${movie.Year}</p>
+      </div>   
 
+    </a>
   </li>
   `;
   searchResList.insertAdjacentHTML('beforeend', markup)
