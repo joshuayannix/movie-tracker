@@ -15,26 +15,29 @@ body {
 
 .container {
   border: 2px solid yellow;
-  width: 95vw;
+  width: 98vw;
 }
 .results {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
   width: 20%;
   border: 2px solid blue;
 }
 
 .results__list {
   display: flex;
+  flex-direction: column;
   width: 100%;
-  flex-wrap: wrap;
   padding: 10px;
+  align-items: start;
+  justify-content: start;
+  
 }
 
 .movie-item {
-  padding: 2px;
+  margin: 2px;
+  height: 160px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -76,48 +79,69 @@ body {
 
 .btn-inline {
   color: blue;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border: none;
   background-color: #F9F5F3;
-  padding: .8rem 1.2rem;
+  padding: .8rem .8rem;
   border-radius: 10rem;
   cursor: pointer;
   display: flex;
   align-items: center;
-  transition: all .2s; }
-  .btn-inline svg {
-    height: 1.5rem;
-    width: 1.5rem;
-    fill: currentColor;
-    margin: 0 .2rem; }
-  .btn-inline span {
-    margin: 0 .4rem; }
-  .btn-inline:hover {
-    color: #F48982;
-    background-color: #F2EFEE; }
-  .btn-inline:focus {
-    outline: none; }
+  transition: all .2s; 
+}
+
+.btn-inline svg {
+  height: 1.5rem;
+  width: 1.5rem;
+  fill: currentColor;
+  margin: 0 .2rem; 
+}
+
+.btn-inline span {
+  margin: 0 .2rem; 
+}
+
+.btn-inline:hover {
+  color: #F48982;
+  background-color: #F2EFEE; 
+}
+
+.btn-inline:focus {
+  outline: none; 
+}
 
 .results__btn--prev {
   float: left;
+  border: 2px green;
 }
 
 .results__btn--next {
   float: right;
 }
 
+.results__pages {
+  margin-top: 1rem;
+  padding: 0 0.5rem; 
+  width: 100%;
+  border: 2px dotted darkmagenta;
+}
+
 .loader {
   margin: 5rem auto;
-  text-align: center; }
-  .loader svg {
-    height: 5.5rem;
-    width: 5.5rem;
-    fill: red;
-    transform-origin: 44% 50%;
-    animation: rotate 1.5s infinite linear; }
+  text-align: center; 
+}
+
+.loader svg {
+  height: 5.5rem;
+  width: 5.5rem;
+  fill: red;
+  transform-origin: 44% 50%;
+  animation: rotate 1.5s infinite linear; 
+}
 
 @keyframes rotate {
   0% {
     transform: rotate(0); }
   100% {
-    transform: rotate(360deg); } }
+    transform: rotate(360deg); } 
+}

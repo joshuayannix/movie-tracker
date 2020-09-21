@@ -28,7 +28,7 @@ const renderMovie = movie => {
       <div>${movie.Year}</div
       <div>${movie.imdbID}</div>
     </div>   
-    
+
   </li>
   `;
   searchResList.insertAdjacentHTML('beforeend', markup)

@@ -1,5 +1,5 @@
 import Search from './models/Search';
-import { clearLoader, renderLoader } from './views/loader';
+import { clearLoader, elementStrings, renderLoader } from './views/loader';
 import * as searchView from './views/searchView';
 
 //Testing that the API call works
@@ -36,10 +36,24 @@ const controlSearch = async() => {
   }
 }
 
-document.querySelector('.search').addEventListener('submit', e => {
+// When submit search form, show results
+const searchForm = document.querySelector('.search');
+searchForm.addEventListener('submit', e => {
   e.preventDefault();
   controlSearch()
 })
+
+// Add event listeners to page buttons
+const searchResPages = document.querySelector('.results__pages');
+searchResPages.addEventListener('click', e => {
+  const btn = e.target.closest('.btn-inline');
+  if (btn) {
+    const goToPage = parseInt(btn.dataset.goto, 10);
+    searchView.clearResults();
+    searchView.renderResults(state.search.result, goToPage);
+  }
+});
+
 
 /**
  * Search Controller
