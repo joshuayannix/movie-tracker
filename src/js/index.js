@@ -107,20 +107,25 @@ const controlLike = () => {
     const newLike = state.likes.addLike(
       currentID,
       state.movie.title,
-      state.movie.poster,
-      state.movie.year
+      state.movie.year,
+      state.movie.poster
     )
     // Toggle the like button
+    likesView.toggleLikeBtn(true);
 
     // Add the like to the UI list
+    likesView.renderLike(newLike);
 
     // User HAS liked current movie
   } else {
     // Remove like from the state
+    state.likes.deleteLike(currentID);
 
     // Toggle the like button
+    likesView.toggleLikeBtn(false);
 
     // Remove like from the UI list
+    likesView.deleteLike(currentID);
   }
   
 }
@@ -133,4 +138,9 @@ const controlLike = () => {
 * Handling movie button clicks
 */
 
+movieSection.addEventListener('click', e => {
+  if(e.target.matches('.like-button, .like-button *')) {  
+    controlLike();
+  }
+})
 

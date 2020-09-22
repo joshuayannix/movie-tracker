@@ -15,7 +15,7 @@ export default class Likes {
     this.likes.splice(index, 1);
 
     // Persist data in localStorage
-    this.peresistData();
+    this.persistData();
   }
 
   isLiked(id) {
