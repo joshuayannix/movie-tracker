@@ -134,6 +134,17 @@ const controlLike = () => {
 * Restore liked movies on page load
 */
 
+window.addEventListener('load', () => {
+  state.likes = new Likes();
+
+  // Restore likes
+  state.likes.readStorage();
+
+  // Render the existing likes
+  state.likes.likes.forEach(like => likesView.renderLike(like));
+
+})
+
 /**
 * Handling movie button clicks
 */
