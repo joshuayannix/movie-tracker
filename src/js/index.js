@@ -3,6 +3,8 @@ import Search from './models/Search';
 import { clearLoader, renderLoader } from './views/loader';
 import * as searchView from './views/searchView';
 import * as movieView from './views/movieView';
+import Likes from './models/Likes';
+import * as likesView from './views/likesView';
 
 //Testing that the API call works
 // const search = new Search('batman')
@@ -14,7 +16,9 @@ const state = {};
 const controlSearch = async() => {
   // 1. Get query from view
   const query = searchView.getInput();
-
+  if(!query) {
+    alert('Please enter a search term')
+  }
   if(query) {
     // 2. New search object and add to state
     state.search = new Search(query)
@@ -32,7 +36,6 @@ const controlSearch = async() => {
       clearLoader();
       searchView.renderResults(state.search.result);
     } catch (error) {
-      console.log(error);
       clearLoader();
     }
   }
@@ -43,6 +46,7 @@ const searchForm = document.querySelector('.search');
 searchForm.addEventListener('submit', e => {
   e.preventDefault();
   controlSearch()
+  console.log('searching');
 })
 
 // Add event listeners to page buttons
@@ -92,36 +96,41 @@ const controlMovie = async () => {
  * Likes Controller
  */
 
+const controlLike = () => {
+  if (!state.likes) state.likes = new Likes();
+
+  const currentID = state.movie.id;
+
+  // User has not yet liked current movie
+  if (!state.likes.isLiked(currentID)) {
+    // Add like to the state
+    const newLike = state.likes.addLike(
+      currentID,
+      state.movie.title,
+      state.movie.poster,
+      state.movie.year
+    )
+    // Toggle the like button
+
+    // Add the like to the UI list
+
+    // User HAS liked current movie
+  } else {
+    // Remove like from the state
+
+    // Toggle the like button
+
+    // Remove like from the UI list
+  }
+  
+}
+
 /**
- * Restore liked movies on page load
- */
+* Restore liked movies on page load
+*/
 
- /**
-  * Handling movie button clicks
-  */
-
-
-
-// const setBackToDefault = () => {
-//   searchInput.value = '';
-// }
+/**
+* Handling movie button clicks
+*/
 
 
-// const clearItems = () => {
-//   const movies = document.querySelectorAll('.movie-item');
-//   movies.forEach(movie => {
-//     moviesList.removeChild(movie)
-//   })
-// }
-
-// const showResults = e => {
-//   e.preventDefault()
-  
-//   clearItems();
-//   search(searchInput.value);
-//   setBackToDefault();
-  
-// }
-
-// // Event Listeners
-// form.addEventListener('submit', showResults)

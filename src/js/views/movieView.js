@@ -9,10 +9,17 @@ export const renderMovie = (movie) => {
     <figure>
       <img src="${movie.poster}" alt="${movie.title}">
     </figure>
+
+    <div class="movie-header">
+      <h1 class="movie-title">${movie.title}</h1>
+      <button class="like-button">Like</button>
+    </div>
+
     <div class="movie__details-columns">
 
       <div class="movie__details-firstColumn">
         <div>${movie.actors}</div> 
+        <div>${movie.title}</div> 
         <div>${movie.awards}</div>  
         <div>${movie.boxOffice}</div> 
         <div>${movie.country}</div> 
@@ -23,17 +30,17 @@ export const renderMovie = (movie) => {
         <div>${movie.plot}</div>             
       </div>
 
-    <div class="movie__details-secondColumn">
-      <div>${movie.production}</div>
-      <div>${movie.rated}</div>
-      <div>${movie.released}</div>
-      <div>${movie.runtime}</div>
-      <div>${movie.type}</div>
-      <div>${movie.writer}</div>
-      <div>${movie.year}</div>
-      <div>${movie.imdbRating}</div>
-      <div>${movie.imdbVotes}</div>     
-    </div>
+      <div class="movie__details-secondColumn">
+        <div>${movie.production}</div>
+        <div>${movie.rated}</div>
+        <div>${movie.released}</div>
+        <div>${movie.runtime}</div>
+        <div>${movie.type}</div>
+        <div>${movie.writer}</div>
+        <div>${movie.year}</div>
+        <div>${movie.imdbRating}</div>
+        <div>${movie.imdbVotes}</div>     
+      </div>
     
   </div>
     

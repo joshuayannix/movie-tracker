@@ -54,7 +54,6 @@ body {
   
 }
 
-
 .movie-info {
   border: 2px solid green;
   display: flex;
@@ -164,6 +163,34 @@ body {
 
 .results__link:hover {
   background-color: #F9F5F3; 
+  background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
   transform: translateY(-2px);
+  transition: 0.3s;
+}
+
+
+
+
+.movie-header {
+  display: flex;
+  border: 2px solid yellow;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.movie-title {
+  border: 2px solid green;
+}
+
+.like-button {
+  width: 100px;
+  height: 40px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.like-button:hover {
+  transform: scale(1.2);
   transition: 0.3s;
 }
