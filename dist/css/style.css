@@ -153,7 +153,7 @@ body {
     transform: rotate(360deg); } 
 }
 
-.results__link:link {
+.results__link:link, .likes__link:link {
   display: flex;
   align-items: center;
   border: 2px dotted red;
@@ -161,7 +161,7 @@ body {
   color: black;
 }
 
-.results__link:hover {
+.results__link:hover, .likes__link:link {
   background-color: #F9F5F3; 
   background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
   transform: translateY(-2px);

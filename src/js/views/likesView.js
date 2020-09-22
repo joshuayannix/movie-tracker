@@ -1,5 +1,3 @@
-//select the likes list
-
 const likesList = document.querySelector('.likes__list');
 
 
@@ -11,7 +9,7 @@ export const renderLike = like => {
   const markup = `
 
     <li>
-    <a class="results__link" href="#${like.id}">
+    <a class="likes__link" href="#${like.id}">
       <figure class="movie-poster">
         <img class='poster' src=${like.poster} alt='${like.title}'> 
       </figure>
@@ -27,6 +25,6 @@ export const renderLike = like => {
 
 export const deleteLike = id => {
   const el = document.querySelector(`.likes__link[href*="${id}"]`).parentElement;
-  if (el) e.parentElement.removeChild(el);
+  if (el) el.parentElement.removeChild(el);
 };
 
