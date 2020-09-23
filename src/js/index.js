@@ -155,3 +155,21 @@ movieSection.addEventListener('click', e => {
   }
 })
 
+// Clear all Likes
+const clearBtn = document.querySelector('.clear-btn');
+const likesList = document.querySelector('.likes__list');
+
+const clearLikes = () => {
+  const currentLikes = document.querySelectorAll('.likes_item');
+  if(currentLikes.length > 0) {
+    currentLikes.forEach(like => {
+      // Remove each list item from UI
+      likesList.removeChild(like);
+
+      // Remove each like from localStorage
+      state.likes.deleteLike(state.movie.id);
+    })
+  }
+}
+
+clearBtn.addEventListener('click', clearLikes);

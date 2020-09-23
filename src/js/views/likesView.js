@@ -25,7 +25,7 @@ export const toggleLikeBtn = isLiked => {
 export const renderLike = like => {
   const markup = `
 
-    <li>
+    <li class="likes_item">
     <a class="likes__link" href="#${like.id}">
       <figure class="movie-poster">
         <img class='poster' src=${like.poster} alt='${like.title}'> 
