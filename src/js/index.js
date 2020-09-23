@@ -82,7 +82,7 @@ const controlMovie = async () => {
 
       // Render movie
       clearLoader();
-      movieView.renderMovie(state.movie)
+      movieView.renderMovie(state.movie, state.likes.isLiked(id))
     } catch (err) {
       console.log('something wrong with the API call in controlMovie');
     }

@@ -4,7 +4,7 @@ export const clearMovie = () => {
   movieSection.innerHTML = ''
 }
 
-export const renderMovie = (movie) => {
+export const renderMovie = (movie, isLiked) => {
   const markup = `
     <figure>
       <img src="${movie.poster}" alt="${movie.title}">
@@ -12,7 +12,7 @@ export const renderMovie = (movie) => {
 
     <div class="movie-header">
       <h1 class="movie-title">${movie.title}</h1>
-      <button class="like-button">Like</button>
+      <button class="like-button" style="background-color: ${isLiked ? 'blue' : 'white'}">Like</button>
     </div>
 
     <div class="movie__details-columns">

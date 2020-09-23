@@ -12,7 +12,9 @@ body {
   color: white;
   font-family: sans-serif;
 }
-
+ul {
+  list-style-type: none;
+}
 .container {
   border: 2px solid yellow;
   width: 98vw;
@@ -161,7 +163,7 @@ body {
   color: black;
 }
 
-.results__link:hover, .likes__link:link {
+.results__link:hover, .likes__link:hover {
   background-color: #F9F5F3; 
   background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
   transform: translateY(-2px);
